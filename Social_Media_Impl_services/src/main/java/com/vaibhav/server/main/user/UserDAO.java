@@ -77,7 +77,7 @@ public class UserDAO {
 	/**
 	 * @param id
 	 * @return User
-	 * deletes a user based on id from the list
+	 * deletes a user based on id from the list 
 	 */
 	public User deleteUser(int id) {
 		Iterator iterator = users.iterator();
