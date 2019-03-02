@@ -2,6 +2,7 @@ package com.vaibhav.server.main.user;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -28,7 +29,7 @@ public class UserDAO {
 	static {
 		users.add(new User("vaibhav", 1, new Date()));
 		users.add(new User("jayesh", 2, new Date()));
-		users.add(new User("vaibhav", 3, new Date()));
+		users.add(new User("akash", 3, new Date()));
 	}
 
 	/**
@@ -55,7 +56,7 @@ public class UserDAO {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * save user to list
 	 * 
@@ -73,4 +74,21 @@ public class UserDAO {
 		return user;
 	}
 
+	/**
+	 * @param id
+	 * @return User
+	 * deletes a user based on id from the list
+	 */
+	public User deleteUser(int id) {
+		Iterator iterator = users.iterator();
+		if (iterator.hasNext()) {
+			User u = (User) iterator.next();
+			System.out.println("user name if loop"+u.getName());
+			if (u.getId() == id) {
+				iterator.remove();
+				return u;
+			}
+		}
+		return null;
+	}
 }
